@@ -1,0 +1,31 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <div class="shadow p-2 mb-2 bg-white rounded">
+                        <h4 class="card-title text-center">Registro de Datos</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/ccgs/add" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="ccgNombre" placeholder="Nombre CCG" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="ccgMeta" placeholder="Meta" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="ccgObservacion" rows="3" class="form-control" placeholder="Observaciones"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">
+                                Grabar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <div class="shadow p-2 mb-2 bg-white rounded">
+                        <h4 class="card-title text-center">Registro de Datos</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/int/add" method="POST">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">CCG</div>
+                            </div>
+                            <select class="custom-select mx-auto" name="ccgCodigo" id="inlineSelectGrp" required>
+                                <!-- <option selected>CCGs ...</option> -->
+                                {{#each ccgs}}
+                                <option value="{{ccgCodigo}}">{{ccgNombre}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">#</div>
+                            </div>
+                            <input type="number" class="form-control" name="intCantidad" min="1" placeholder="Cantidad" required>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-pencil-alt"></i></div>
+                            </div>
+                            <textarea name="intObservacion" rows="3" class="form-control" placeholder="Observacion"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <div class="custom-control custom-switch">
+                                        <input type="checkbox" class="custom-control-input" name="intRealizado" id="customSwitch1">
+                                        <label class="custom-control-label" data-toggle="tooltip" title="Seleccione esta opción si la intencion ya fue realizada, sino programe la fecha de realización." for="customSwitch1">REALIZADO</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group mb-2 mr-sm-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                    </div>
+                                    <input type="date" class="form-control" name="intFechaRealizacion" min="{{fechaactual}}" placeholder="Seleccione fecha" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-block">
+                            Grabar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

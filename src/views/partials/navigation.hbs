@@ -1,0 +1,75 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Capitalario Schoenstatt Santa Cruz</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      {{#if user}}
+        {{#if (isAdmin user.mbrRol)}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              CCGs
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/ccgs/list">Listado CCGs</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/ccgs/add">Agregar CCG</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Grupos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/grps/list">Listado Grupos</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/grps/add">Agregar Grupos</a>
+            </div>
+          </li>
+        {{/if}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Intenciones
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/int/list">Listado</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/int/add">Nuevas Intenciones</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Informes
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/stds/dashb">Estadisticas CCGs Generales</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/stds/grps">Estadisticas CCGs por Grupos</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/countdown">Cuenta regresiva</a>
+            {{#if (isAdmin user.mbrRol)}}
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/stds/mbrs">Estadisticas CCGs por Miembros</a>
+            {{/if}}
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="/profile" class="nav-link">Perfil Usuario</a>
+        </li>
+        <li class="nav-item">
+          <a href="/logout" class="nav-link">Cerrar Sesion</a>
+        </li>
+      {{else}}
+        <li class="nav-item">
+          <a href="/signin" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="/signup" class="nav-link">Registro</a>
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+</nav>
+</div>

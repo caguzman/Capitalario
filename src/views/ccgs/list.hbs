@@ -1,0 +1,41 @@
+<div class="container p-4">
+    <div class="card">
+        <div class="card-header">
+            <h4>Definicion de Contribuciones al Capital de Gracias - CCG</h4>
+        </div>
+        <div class="card-body">
+          <div class="col" id="tblCcgs">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Meta</th>
+                    <th>Observacion</th>
+                    <th>Comandos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each ccgs}}
+                  <tr>
+                    <td>{{ccgNombre}}</td>
+                    <td>{{ccgMeta}}</td>
+                    <td>{{ccgObservacion}}</td>
+                    <td>
+                        <a href="/ccgs/edit/{{ccgCodigo}}" class="btn btn-secondary"><i class="fas fa-marker"></i></a>
+                        <a href="/ccgs/delete/{{ccgCodigo}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  {{else}}
+                    <div class="col-md-4 mx-auto">
+                        <div class="card card-body text-center">
+                            <p>No hay contribuciones al capital de gracias creadas aun.</p>
+                            <a href="/ccgs/add"><button class="btn btn-primary btn-block">Crea Una!</button></a>
+                        </div>
+                    </div>
+                  {{/each}}
+                </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+</div>

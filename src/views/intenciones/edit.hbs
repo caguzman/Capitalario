@@ -1,0 +1,124 @@
+{{#if intcs.intRealizado}}
+  <div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <div class="shadow p-2 mb-2 bg-white rounded">
+                        <h4 class="card-title text-center">Edicion de Datos</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/int/list">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">CCG</div>
+                            </div>
+                            <select class="custom-select mx-auto" name="ccgCodigo" id="inlineSelectGrp" disabled>
+                                {{#each ccgs}}
+                                    <option value="{{ccgCodigo}}">{{ccgNombre}}</option>
+                                {{/each}}
+                                <option value={{intcs.ccgCodigo}} selected>{{intcs.ccgNombre}}</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">#</div>
+                            </div>
+                            <input type="number" class="form-control" value="{{intcs.intCantidad}}" name="intCantidad" min="1" placeholder="Cantidad" disabled>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-pencil-alt"></i></div>
+                            </div>
+                            <textarea name="intObservacion" rows="3" class="form-control" placeholder="Observacion" disabled>{{intcs.intObservacion}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" value="{{intcs.intRealizado}}" name="intRealizado" id="customSwitch1" {{control intcs.intRealizado}} disabled>
+                                <label class="custom-control-label" data-toggle="tooltip" title="Seleccione esta opción si la intencion ya fue realizada, sino programe la fecha de realización." for="customSwitch1">REALIZADO</label>
+                            </div>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                            </div>
+                            {{#if intcs.intRealizado}}
+                                <input type="date" class="form-control" min="{{fechaactual}}" name="intFechaRealizacion" placeholder="Seleccione fecha" disabled>
+                            {{else}}
+                                <input type="date" class="form-control" value="{{fechaformato intcs.intFechaRealizacion}}" min="{{fechaactual}}" name="intFechaRealizacion" placeholder="Seleccione fecha" disabled>
+                            {{/if}}
+                        </div>
+                        
+                        <button class="btn btn-success btn-block">
+                            Volver
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+{{else}}
+  <div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <div class="shadow p-2 mb-2 bg-white rounded">
+                        <h4 class="card-title text-center">Edicion de Datos</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/int/edit/{{intcs.intCodigo}}" method="POST">
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">CCG</div>
+                            </div>
+                            <select class="custom-select mx-auto" name="ccgCodigo" id="inlineSelectGrp" required>
+                                {{#each ccgs}}
+                                    <option value="{{ccgCodigo}}">{{ccgNombre}}</option>
+                                {{/each}}
+                                <option value={{intcs.ccgCodigo}} selected>{{intcs.ccgNombre}}</option>
+                            </select>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">#</div>
+                            </div>
+                            <input type="number" class="form-control" value="{{intcs.intCantidad}}" name="intCantidad" min="1" placeholder="Cantidad" required>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-pencil-alt"></i></div>
+                            </div>
+                            <textarea name="intObservacion" rows="3" class="form-control" placeholder="Observacion">{{intcs.intObservacion}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" name="intRealizado" id="customSwitch1"  {{control intcs.intRealizado}}>
+                                <label class="custom-control-label" data-toggle="tooltip" title="Seleccione esta opción si la intencion ya fue realizada, sino programe la fecha de realización." for="customSwitch1">REALIZADO</label>
+                            </div>
+                        </div>
+                        <div class="input-group mb-2 mr-sm-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                            </div>
+                            {{#if intcs.intRealizado}}
+                                <input type="date" class="form-control" min="{{fechaactual}}" name="intFechaRealizacion" placeholder="Seleccione fecha">
+                            {{else}}
+                                <input type="date" class="form-control" value="{{fechaformato intcs.intFechaRealizacion}}" min="{{fechaactual}}" name="intFechaRealizacion" placeholder="Seleccione fecha">
+                            {{/if}}
+                        </div>
+                        
+                        <button class="btn btn-success btn-block">
+                            Grabar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+{{/if}}
+

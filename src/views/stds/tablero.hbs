@@ -1,0 +1,24 @@
+<div class="container p-4">
+    <div class="alert alert-primary" role="alert">
+        <h4 class="text-center">Estadisticas por CCGs definidas</h4>
+    </div>
+    <div class="row" id="pnlEstadis">
+        {{#each intCcgs}}
+            <div class="col-md-3 m-2">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h4>{{ccgNombre}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Programado: {{ccgMeta}}</h5>
+                        <h5>Conseguido: {{totCantidad}}</h5>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: {{avance ccgMeta totCantidad}}%" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
+

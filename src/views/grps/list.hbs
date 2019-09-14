@@ -1,0 +1,40 @@
+
+<div class="container p-4">
+    <div class="card">
+        <div class="card-header">
+            <h4>Definicion de Grupos de Vida</h4>
+        </div>
+        <div class="card-body">
+          <div class="col" id="tblGrupos">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Rama</th>
+                    <th>Comandos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each grps_rama}}
+                  <tr>
+                    <td>{{grpNombre}}</td>
+                    <td>{{rmaNombre}}</td>
+                    <td>
+                        <a href="/grps/edit/{{grpCodigo}}" class="btn btn-secondary"><i class="fas fa-marker"></i></a>
+                        <a href="/grps/delete/{{grpCodigo}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                  </tr>
+                  {{else}}
+                    <div class="col-md-4 mx-auto">
+                        <div class="card card-body text-center">
+                            <p>No hay grupos definidos aun.</p>
+                            <a href="/grps/add"><button class="btn btn-primary btn-block">Crea Uno!</button></a>
+                        </div>
+                    </div>
+                  {{/each}}
+                </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+</div>

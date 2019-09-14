@@ -1,0 +1,67 @@
+<div class="container p-3">
+  <div class="conscroll">
+    <div class="row">
+        {{#each intCcg0}}
+            <div class="col-md-3 m-2">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <h6 class="text-uppercase">{{ccgNombre}}&nbsp;<span class="badge badge-primary">{{intCantidad}}</span></h6>
+                    </div>
+                    <div class="card-body bg-warning">
+                        <p class="m-2">{{intObservacion}}</p>
+                        <h5 class="m-2">{{realizado intRealizado}}</h5>
+                        {{#if intRealizado}}
+                        {{else}}
+                            <p class="m-2">{{fecha intFechaRealizacion}}</p>
+                        {{/if}}
+                        <p>Creado: {{timeago intFechaCreacion}}</p>
+                        <a href="/int/edit/{{intCodigo}}" class="btn btn-secondary"><i class="fas fa-marker"></i></a>
+                        <a href="/int/delete/{{intCodigo}}" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>No hay intenciones definidas aun.</p>
+                    <a href="/int/add"><button class="btn btn-primary btn-block">Crea Una!</button></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+  </div>
+  <hr>
+  <h5 class="m-1">Mis CCGs realizadas: </h5>
+  <div class="col" id="tablaCont">
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Observacion</th>
+            <th>Comandos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each intCcg1}}
+              <tr>
+                <td>{{ccgNombre}}</td>
+                <td>{{intCantidad}}</td>
+                <td>{{intObservacion}}</td>
+                <td>
+                    <a href="/int/edit/{{intCodigo}}" class="btn btn-secondary"><i class="fas fa-marker"></i></a>
+                    <a href="/int/delete/{{intCodigo}}" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></a>
+                </td>
+              </tr>
+            {{else}}
+              <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>No hay mas Contribuciones al capital de gracias realizadas.</p>
+                    <a href="/int/add"><button class="btn btn-primary btn-block">Crea Una!</button></a>
+                </div>
+              </div>
+            {{/each}}
+        </tbody>
+    </table>
+  </div>
+</div>

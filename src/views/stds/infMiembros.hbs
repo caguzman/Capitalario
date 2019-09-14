@@ -1,0 +1,53 @@
+<div class="container p-4">
+    <div class="alert alert-primary m-1" role="alert">
+        <h4 class="text-center">Estadisticas CCGs individuales</h4>
+    </div>
+    <div class="col" id="infMiembros">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Grupo</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>CCG</th>
+                    <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each ccgsMbrs}}
+                  <tr>
+                    <td>{{grpNombre}}</td>
+                    <td>{{mbrNombre}}</td>
+                    <td>{{mbrApellidos}}</td>
+                    <td>{{ccgNombre}}</td>
+                    <td>{{intcantidad}}</td>
+                  </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <h5 class="m-2">Resumen:</h5>
+    <div class="col-md-6 mx-auto" id="resMiembros">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                <th>Grupo</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Suma CCG</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each ccgsTotal}}
+                  <tr>
+                    <td>{{grpNombre}}</td>
+                    <td>{{mbrNombre}}</td>
+                    <td>{{mbrApellidos}}</td>
+                    <td>{{ccgs}}</td>
+                  </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

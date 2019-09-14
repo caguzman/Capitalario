@@ -1,0 +1,45 @@
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <div class="shadow p-2 mb-2 bg-white rounded">
+                        <h4 class="card-title text-center">Modificacion de Datos</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/grps/edit/{{grps.grpCodigo}}" method="POST">
+                        <div class="form-row">
+                            <div class="col-md-2 m-2">
+                                <h6>Rama: </h6>
+                            </div>
+                            <div class="col">
+                              <select class="custom-select mx-auto" name="rmaCodigo" id="inlineSelectGrp">
+                                {{#each ramas}}
+                                    <option value={{rmaCodigo}}>{{rmaNombre}}</option>  
+                                {{/each}}
+                                <option value={{grps.rmaCodigo}} selected>{{grps.rmaNombre}}</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-2 m-2">
+                                <h6>Grupo: </h6>
+                            </div>
+                            <div class="col">
+                                <input type="text" value="{{grps.grpNombre}}" class="form-control" name="grpNombre" placeholder="Grupo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row m-3">
+                                <button class="btn btn-success btn-block">
+                                    Grabar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

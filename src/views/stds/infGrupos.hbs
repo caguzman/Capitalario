@@ -1,0 +1,45 @@
+<div class="container p-4">
+    <div class="alert alert-primary m-1" role="alert">
+        <h4 class="text-center">Estadisticas CCGs por grupos</h4>
+    </div>
+    <div class="col" id="infGrupos">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                <th>Grupo</th>
+                <th>CCG</th>
+                <th>Cantidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each ccgsGrupos}}
+                <tr>
+                    <td>{{grpNombre}}</td>
+                    <td>{{ccgNombre}}</td>
+                    <td>{{intCantidad}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+
+    <h5 class="m-2">Resumen:</h5>
+    <div class="col-md-6 mx-auto" id="resGrupos">
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                <th>Grupo</th>
+                <th>Suma CCG</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each ccgsTotal}}
+                <tr>
+                    <td>{{grpNombre}}</td>
+                    <td>{{ccgs}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
