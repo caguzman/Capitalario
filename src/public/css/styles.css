@@ -98,6 +98,12 @@ body {
     background-size: cover;
 }
 
+#ayuda {
+    width: 550px;
+    height: 450px;
+    overflow: scroll;
+}
+
 @media (min-width: 992px) {
     .masthead h1 {
         font-size: 5.5rem;
@@ -184,5 +190,11 @@ body {
         background-position-x: center center;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    #ayuda {
+        width: 1000px;
+        height: 500px;
+        overflow: scroll;
     }
 }
