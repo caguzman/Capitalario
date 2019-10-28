@@ -27,6 +27,11 @@ router.get('/signin', isNotLoggedIn, (req, res) => {
     res.render('auth/signin');
 });
 
+//-- Pintando el formulario de ayuda
+router.get('/help', (req, res) => {
+    res.render('auth/help');
+});
+
 //-- Verificando los datos introducidos y cotejando con los de la BD
 router.post('/signin', isNotLoggedIn, (req, res, next) => {
     passport.authenticate('local.signin', {
